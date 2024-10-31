@@ -1,4 +1,7 @@
-FROM python
-COPY . /app-ngg
-WORKDIR /app-ngg
-CMD ["python3", "app-ngg.py"]
+FROM nginx:latest
+
+COPY . /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
